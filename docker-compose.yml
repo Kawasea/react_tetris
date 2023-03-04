@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  node:
+    container_name: frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    tty: true
+    environment:
+      - NODE_ENV=production
+    command: sh -c "npm start" #作業ディレクトリ /usr/app
+    ports:
+    - "3000:3000"
+    volumes:
+    - ./frontend/app:/usr/app
